@@ -1,0 +1,102 @@
+/* Base styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+/* Styling for the menu container */
+.menu {
+    position: relative;
+}
+
+/* Hiding the checkbox input */
+.menu-open {
+    display: none;
+}
+
+/* Styling for the burger button */
+.menu-open-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70px; /* Button size */
+    height: 70px; /* Button size */
+    background-color: rgb(189, 18, 18); /* Updated color */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Lines inside the burger button */
+.menu-line {
+    width: 35px; /* Keep lines at a consistent width */
+    height: 4px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Grow effect on hover */
+.menu-open-button:hover {
+    transform: scale(1.1);
+}
+
+/* Styling for the menu items */
+.menu-item {
+    position: absolute;
+    width: 70px;  /* Matching the burger button size */
+    height: 70px; /* Matching the burger button size */
+    background-color: rgb(189, 18, 18); /* Updated color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px; /* Adjusted icon size */
+    transition: all 0.3s ease;
+}
+
+/* Positioning the menu items in a vertical line directly below the button */
+.menu-item:nth-child(3) { top: 80px; left: 0px; } /* Centered below the button */
+.menu-item:nth-child(4) { top: 160px; left: 0px; }
+.menu-item:nth-child(5) { top: 240px; left: 0px; }
+.menu-item:nth-child(6) { top: 320px; left: 0px; }
+.menu-item:nth-child(7) { top: 400px; left: 0px; }
+
+/* Initially hide the menu items */
+.menu-item {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Show the menu items when the menu is open */
+.menu-open:checked ~ .menu-item {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Hover effect for the menu items */
+.menu-item:hover {
+    background-color: white;
+    color: rgb(189, 18, 18); /* Updated color */
+    border: 1px solid rgb(189, 18, 18); /* Updated color */
+}
+
+/* Proper X transition */
+.menu-open:checked + .menu-open-button .menu-line-1 {
+    transform: rotate(45deg) translate(10px, 10px); /* Forms one diagonal of the X */
+}
+
+.menu-open:checked + .menu-open-button .menu-line-2 {
+    opacity: 0; /* Hides the middle line */
+}
+
+.menu-open:checked + .menu-open-button .menu-line-3 {
+    transform: rotate(-45deg) translate(10px, -10px); /* Forms the other diagonal of the X */
+}
